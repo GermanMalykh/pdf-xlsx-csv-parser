@@ -11,7 +11,7 @@ public class JsonParserTest {
 
     ClassLoader classLoader = JsonParserTest.class.getClassLoader();
 
-    String jsonFileName = "Person.json",
+    static String jsonFileName = "Person.json",
             name = "Luke Skywalker",
             hairColor = "blond",
             eyeColor = "blue",
@@ -19,17 +19,17 @@ public class JsonParserTest {
             birthYear = "19BBY",
             gender = "male";
 
-    int height = 172,
+    static int height = 172,
             mass = 77;
 
-    String[] filmsList = new String[]{
+    static String[] filmsList = new String[]{
             "A New Hope",
             "The Empire Strikes Back",
             "Return of the Jedi",
             "The Last Jedi",
             "The Rise of Skywalker"};
 
-    @DisplayName("Checking the value for")
+    @DisplayName("Checking File Values")
     @Test
     void parseJsonTest() throws IOException {
         try (InputStream stream = classLoader.getResourceAsStream(jsonFileName)) {
