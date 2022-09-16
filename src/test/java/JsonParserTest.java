@@ -11,27 +11,28 @@ public class JsonParserTest {
 
     ClassLoader classLoader = JsonParserTest.class.getClassLoader();
 
-    static String jsonFileName = "Person.json",
-            name = "Luke Skywalker",
-            hairColor = "blond",
-            eyeColor = "blue",
-            skinColor = "fair",
-            birthYear = "19BBY",
-            gender = "male";
-
-    static int height = 172,
-            mass = 77;
-
-    static String[] filmsList = new String[]{
-            "A New Hope",
-            "The Empire Strikes Back",
-            "Return of the Jedi",
-            "The Last Jedi",
-            "The Rise of Skywalker"};
-
     @DisplayName("Checking File Values")
     @Test
     void parseJsonTest() throws IOException {
+
+        String jsonFileName = "Person.json",
+                name = "Luke Skywalker",
+                hairColor = "blond",
+                eyeColor = "blue",
+                skinColor = "fair",
+                birthYear = "19BBY",
+                gender = "male";
+
+        int height = 172,
+                mass = 77;
+
+        String[] filmsList = new String[]{
+                "A New Hope",
+                "The Empire Strikes Back",
+                "Return of the Jedi",
+                "The Last Jedi",
+                "The Rise of Skywalker"};
+
         try (InputStream stream = classLoader.getResourceAsStream(jsonFileName)) {
             ObjectMapper objectMapper = new ObjectMapper();
             Person person = objectMapper.readValue(stream, Person.class);
